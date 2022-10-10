@@ -6,4 +6,10 @@ This projects has 27 files and each files contains scripts for a given tasks on 
 
 **1-confused_smiley** -- contains script that displays a confused smiley "(Ôo)'.
 
-**2-hellofile** -- contains script display the content of the /etc/passwd file.
+**2-hellofile** -- contains script that displays the content of the /etc/passwd file.
+
+**3-twofiles** -- contains scripts that displays the content of /etc/passwd and /etc/hosts.
+
+**4-lastlines** -- contains scripts that displays the last 10 lines of /etc/passwd.
+
+**5-firstlines** -- contains script that displays the first 10 lines of /etc/passwd.
