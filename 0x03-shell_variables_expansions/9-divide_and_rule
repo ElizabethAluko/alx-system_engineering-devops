@@ -1,0 +1,2 @@
+#!/bish/bash
+echo $((POWER/DIVIDE))
