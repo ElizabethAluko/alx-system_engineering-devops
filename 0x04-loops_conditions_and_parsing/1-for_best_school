@@ -2,4 +2,4 @@
 # Displays Best School 10 times.
 
 END=10
-for i in $(seq 1 $END); do echo "Best School";done
+for _ in $(seq 1 $END); do echo "Best School";done
