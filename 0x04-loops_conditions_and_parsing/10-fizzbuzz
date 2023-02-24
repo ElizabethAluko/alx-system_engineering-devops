@@ -16,5 +16,5 @@ do
 	else
 		echo $count
 	fi
-	((count))
+	((count++))
 done
