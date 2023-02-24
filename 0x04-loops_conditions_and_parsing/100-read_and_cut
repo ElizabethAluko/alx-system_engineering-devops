@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Displays the content of the file /etc/passwd.
 
-while read name
+while read -r name
 do
 	echo "$name" | cut -d":" -f1,3,6
 done < /etc/passwd
