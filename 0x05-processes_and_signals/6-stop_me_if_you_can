@@ -1,0 +1,4 @@
+top_me_if_you_can!/usr/bin/env bash
+# Stops infinite process without ctrl+c.
+
+pkill -f "./4-to_infinity_and_beyond"
