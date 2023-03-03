@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Connecting to localhost on port 98 using telnet
+
+nc -l 98
