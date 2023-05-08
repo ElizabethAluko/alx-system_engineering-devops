@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Installs and configure a simple Nginx web server on web-01
+
 ROOT_PATH="/var/www/html"
 ROOT_FILE_PATH="$ROOT_PATH/index.html"
 ERROR_FILE="/error.html"
@@ -18,9 +19,9 @@ echo "Hello World!" > "$ROOT_FILE_PATH"
 echo "Ceci n'est pas une page" > "$ERROR_FILE_PATH"
 sudo chmod a-w "$ROOT_FILE_PATH" "$ERROR_FILE_PATH"
 
-# Insert changes into the folder
+# Inserting changes into the folder
 sudo sed -i "46 a\ $REDIRECTION" "$SERVER_BLOCK_PATH"
 sudo sed -i "50 a\ $CUSTOM_ERROR" "$SERVER_BLOCK_PATH"
 
-# Restart the server
+# Restart server
 sudo service nginx restart
