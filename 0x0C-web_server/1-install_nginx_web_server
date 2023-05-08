@@ -1,18 +1,12 @@
 #!/usr/bin/env bash
 # Installs and sets up a simple Nginx web server on web-01
 
-apt-get update
-apt-get install nginx -y
+ROOT_FILE_PATH="/var/www/html/index.html"
 
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
-printf %s "server {
-	listen    80 default_server;
-	listen    [::]:80 default_server;
-	root      /etc/nginx/html;
-	index     index.html index.htm;
-}
-" > /etc/nginx/sites-available/default
-
-service nginx restart
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo touch "$ROOT_FILE_PATH"
+sudo chmod a+w "$ROOT_FILE_PATH"
+sudo echo "Hello World!" > "$ROOT_FILE_PATH"
+sudo chmod a-w "$ROOT_FILE_PATH"
+sudo service nginx restart
