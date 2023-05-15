@@ -1,0 +1,16 @@
+# include snippets/snakeoil.conf;
+
+        root /var/www/html;                       
+        # Add index.php to the list if you are usi
+ng PHP
+        index index.html index.htm index.nginx-deb
+ian.html;
+                                                          server_name _;
+                                                          location /redirect_me {                                   return 301 https://www.youtube.com
+/watch?v=QH2-TGUlwu4$request_uri;                         }                                                                                                   error_page 404 /error.html;                       location = /error.html {                                  root /var/www/html;                               internal;                                 }
+                                                          location / {                                              # First attempt to serve request a
+s file, then                                                      # as directory, then fall back to displaying a 404.                                                 proxy_pass http://localhost:8080;                 try_files $uri $uri/ =404;                }
+                                                          # pass PHP scripts to FastCGI server              #                                                 #location ~ \.php$ {
+        #       include snippets/fastcgi-php.conf;
+        #
+        #       # With php-fpm (or other unix sockets):
