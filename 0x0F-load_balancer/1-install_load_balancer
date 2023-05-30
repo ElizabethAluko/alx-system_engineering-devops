@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Installs and configures the haproxy load balancer to work with both servers.
+BACKEND="\nbackend web_back\n\tbalance roundrobin\n\tserver 104377-web-01 34.227.92.200:80 check\n\tserver 104377-web-02 54.90.39.82:80 check\n"
+FRONTEND="\nfrontend web_front\n\tbind *:80\n\tdefault_backend web_back\n"
+HAPROXY_CONFIG_PATH="/etc/haproxy/haproxy.cfg"
+HAPROXY_DEFAULTS_FILE="/etc/default/haproxy"
+
+sudo apt-get update
+sudo apt-get -y install haproxy
+sudo chmod 646 "$HAPROXY_CONFIG_PATH" "$HAPROXY_DEFAULTS_FILE"
+echo -e "ENABLED=1" >> "$HAPROXY_DEFAULTS_FILE"
+echo -e "$FRONTEND" >> "$HAPROXY_CONFIG_PATH"
+echo -e "$BACKEND" >> "$HAPROXY_CONFIG_PATH"
+sudo chmod 644 "$HAPROXY_CONFIG_PATH" "$HAPROXY_DEFAULTS_FILE"
+sudo service haproxy restart
