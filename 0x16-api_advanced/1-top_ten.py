@@ -17,4 +17,4 @@ def top_ten(subreddit):
         else:
                     print("No posts found.")
     else:
-        print("Invalid subreddit.")
+        print(None)
