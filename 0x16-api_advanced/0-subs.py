@@ -1,5 +1,6 @@
-import requests
+#!/usr/bin/python3
 """Use Reddit API to get the number of a subscribbers"""
+import requests
 
 
 def number_of_subscribers(subreddit):
