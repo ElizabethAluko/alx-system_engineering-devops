@@ -1,25 +1,22 @@
-#!/bin/usr/python3
-"""Get top ten tiles"""
+#!/usr/bin/python3
+"""Contains top_ten function"""
 import requests
 
 
 def top_ten(subreddit):
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
-    headers = {'User-Agent': 'YourBot/1.0'}
-
-    response = requests.get(url, headers=headers, allow_redirects=False)
-
-    if response.status_code == 200:
-        data = response.json()
-        if 'data' in data and 'children' in data['data']:
-            for post in data['data']['children']:
-                if 'data' in post and 'title' in post['data']:
-                    print(post['data']['title'])
-        else:
-            print("No posts found.")
-    else:
-        print("Invalid subreddit.")
-
-# Example usage
-subreddit = 'python'
-top_ten(subreddit)
+    """Print the titles of the 10 hottest posts on a given subreddit."""
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
+    headers = {
+        "User-Agent": "0x16-api_advanced:project:\
+v1.0.0 (by /u/firdaus_cartoon_jr)"
+    }
+    params = {
+        "limit": 10
+    }
+    response = requests.get(url, headers=headers, params=params,
+                            allow_redirects=False)
+    if response.status_code == 404:
+        print("None")
+        return
+    results = response.json().get("data")
+    [print(c.get("data").get("title")) for c in results.get("children")]
