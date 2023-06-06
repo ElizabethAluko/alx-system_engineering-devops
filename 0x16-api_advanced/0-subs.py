@@ -1,4 +1,6 @@
 import requests
+"""Use Reddit API to get the number of a subscribbers"""
+
 
 def number_of_subscribers(subreddit):
     """Return number of subscribers"""
