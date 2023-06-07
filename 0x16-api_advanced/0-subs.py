@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Use Reddit API to get the number of a subscribbers"""
+"""
+Use Reddit API to get the number of a subscribbers 
+using the subreddit.
+"""
 
 import requests
 
