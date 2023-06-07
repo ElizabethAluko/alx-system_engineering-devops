@@ -1,11 +1,24 @@
 #!/usr/bin/python3
+
 """
-Recursive function that queries the Reddit API
+This module contains a recursive function that queries the Reddit API and returns a list of hot article titles for a given subreddit.
 """
+
+import requests
 
 
 def recurse(subreddit, hot_list=None):
-    """Return the titles of hot articles in Reddit API"""
+    """
+    Recursively queries the Reddit API and returns a list of hot article titles for a given subreddit.
+    If no results are found or the subreddit is invalid, None is returned.
+
+    Args:
+        subreddit (str): The name of the subreddit to query.
+        hot_list (list, optional): A list to store the hot article titles. Defaults to None.
+
+    Returns:
+        list or None: A list containing the hot article titles or None if no results are found.
+    """
     if hot_list is None:
         hot_list = []
     
