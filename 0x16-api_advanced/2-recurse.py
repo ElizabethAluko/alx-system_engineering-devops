@@ -6,7 +6,6 @@ Recursive function that queries the Reddit API
 
 def recurse(subreddit, hot_list=None):
     """Return the titles of hot articles in Reddit API"""
-def recurse(subreddit, hot_list=None):
     if hot_list is None:
         hot_list = []
     
