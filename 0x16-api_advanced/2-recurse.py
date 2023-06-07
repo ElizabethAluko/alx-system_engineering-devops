@@ -3,18 +3,17 @@
 Recursive function that queries the Reddit API
 """
 
-import requests
-
 
 def recurse(subreddit, hot_list=None):
     """Return the titles of hot articles in Reddit API"""
+def recurse(subreddit, hot_list=None):
     if hot_list is None:
         hot_list = []
-
+    
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     headers = {'User-Agent': 'Mozilla/5.0'}
     response = requests.get(url, headers=headers)
-
+    
     if response.status_code == 200:
         data = response.json()
         if data.get('data') and data['data'].get('children'):
