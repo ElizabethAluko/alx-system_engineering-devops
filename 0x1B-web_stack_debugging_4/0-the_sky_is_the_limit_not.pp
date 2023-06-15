@@ -7,6 +7,6 @@ exec { 'reconfg-nginx':
 
 #restart nginx to apply the changes
 exec { 'nginx restart',
-  command => 'service nginx restart',
+  command => 'nginx restart',
   path    => '/etc/init.d/"
 }
